@@ -165,6 +165,7 @@ int rx_cnt;
 int delay;
 
 extern int fish_traffic;
+extern char *network_interface;
 void get_traffic(void);
 
 int net_tx_speed(void)
@@ -215,7 +216,7 @@ void get_traffic(void)
 			/* I love sscanf! :) */
 			sscanf(buffer, "%*[ ]%[^:]:%*d %Ld %*d %*d %*d %*d %*d %*d %*d %Ld %*d %*d %*d %*d %*d %*d", name, &rx_amount, &tx_amount);
 
-			if(!strcmp(name, NET_DEVICE))
+			if(!strcmp(name, network_interface))
 			{
 				/* Incoming traffic */
 				if(rx_amount != last_rx_amount)
