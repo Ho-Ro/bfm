@@ -101,15 +101,12 @@ int system_memory(void)
 		    else if (strcmp(name, "SwapCached:") == 0) swap_cache = value;
 		}
 		fclose(mem);
+		
+		mem_used = mem_max - ( mem_used + mem_cache + mem_buffers );
 
-		mem_used = (mem_max - mem_used) + (swap_max - swap_used) -
-			(mem_cache + mem_buffers + swap_cache);
-		if (mem_used > mem_max) {
-			swap_used = mem_used - mem_max;
-			mem_used = mem_max;
-		} else {
-			swap_used = 0;
-		}
+		if( mem_used > mem_max ) mem_used = mem_max;
+
+		swap_used = swap_max - swap_used;
 
 		/* proc reports usage in kb, bm wants it in bytes. */
 		bm.mem_used  = 1024 * mem_used;

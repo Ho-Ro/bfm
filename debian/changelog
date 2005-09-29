@@ -1,3 +1,12 @@
+bfm (0.6.4-1) unstable; urgency=low
+
+  * New upstream release. (closes: #210313)
+  * New maintainer. (closes: #325047)
+  * Added debian/watch file.
+  * Updated man file. (closes: #241181)
+
+ -- Jose Carlos Medeiros <debian@psabs.com.br>  Thu, 29 Sep 2005 19:50:47 -0300
+
 bfm (0.6.3-3) unstable; urgency=low
 
   * changed Maintainer to QA and orphaned the package

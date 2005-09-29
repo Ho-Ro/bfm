@@ -58,27 +58,16 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir -a
 	dh_testroot -a
-#	dh_installdebconf -a
 	dh_installdocs -a
 	dh_installexamples -a
 	dh_installmenu -a
-#	dh_installlogrotate -a
-#	dh_installemacsen -a
-#	dh_installpam -a
-#	dh_installmime -a
-#	dh_installinit -a
-#	dh_installcron -a
 	dh_installman -a doc/bubblefishymon.1
-#	dh_installinfo -a
-#	dh_undocumented -a
 	dh_installchangelogs -a ChangeLog
-	dh_strip -a
+	dh_strip -a 
 	dh_link -a
 	dh_compress -a
 	dh_fixperms -a
-#	dh_makeshlibs -a
 	dh_installdeb -a
-#	dh_perl -a
 	dh_shlibdeps -a
 	dh_gencontrol -a
 	dh_md5sums -a

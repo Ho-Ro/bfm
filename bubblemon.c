@@ -76,7 +76,7 @@
  */
 #define _GNU_SOURCE
 
-#define VERSION "0.6.3"
+#define VERSION "0.6.4"
 
 /* general includes */
 #include <stdio.h>
