@@ -1,3 +1,11 @@
+bfm (0.6.4-2) unstable; urgency=low
+
+  * Updated to Standards-Version: 3.6.2.
+  * Build-Depends on debhelper >=5 and updated debian/compat.
+  * Updated FSF address in debian/copyright file.
+
+ -- Jose Carlos Medeiros <debian@psabs.com.br>  Mon, 27 Mar 2006 17:05:41 -0300
+
 bfm (0.6.4-1) unstable; urgency=low
 
   * New upstream release. (closes: #210313)
