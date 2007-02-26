@@ -1,3 +1,9 @@
+bfm (0.6.4-3) unstable; urgency=low
+
+  * New maintainer.
+
+ -- Mika Matsuzaki <mika@yukidoke.org>  Mon, 26 Feb 2007 01:12:17 -0500
+
 bfm (0.6.4-2) unstable; urgency=low
 
   * Updated to Standards-Version: 3.6.2.
