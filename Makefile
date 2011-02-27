@@ -14,7 +14,7 @@ EXTRA += -DENABLE_MEMSCREEN
 EXTRA += -DENABLE_FISH
 EXTRA += -DENABLE_TIME
 EXTRA += -DUPSIDE_DOWN_DUCK
-# EXTRA += -DKDE_DOCKAPP
+EXTRA += -DKDE_DOCKAPP
 
 # If building for Linux define the network device to monitor.
 NET_DEVICE = eth0
@@ -27,10 +27,10 @@ EXTRA += $(WMAN)
 
 # gtk cflags and gtk lib flags
 GTK_CFLAGS = $(shell gtk-config --cflags)
-GTK_LIBS = $(shell gtk-config --libs)
+GTK_LIBS = -lX11 $(shell gtk-config --libs)
 
 GTK2_CFLAGS = $(shell pkg-config gtk+-2.0 --cflags)
-GTK2_LIBS = $(shell pkg-config gtk+-2.0 --libs)
+GTK2_LIBS = -lX11 $(shell pkg-config gtk+-2.0 --libs)
 
 
 # optimization cflags
@@ -60,7 +60,6 @@ STRIP = strip
 CC = gcc
 
 INSTALLMAN = -m 644
-
 
 
 # special things for Linux

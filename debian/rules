@@ -20,7 +20,11 @@ ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
 endif
 ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
         INSTALL_PROGRAM += -s
+	STRIP_PROGRAM = strip
+else
+        STRIP_PROGRAM = true
 endif
+
 
 configure: configure-stamp
 configure-stamp:
@@ -30,15 +34,15 @@ configure-stamp:
 build: configure-stamp build-stamp
 build-stamp:
 	dh_testdir
-	$(MAKE) PREFIX=/usr bubblefishymon
-	$(MAKE) PREFIX=/usr gkrellm
+	$(MAKE) PREFIX=/usr STRIP=$(STRIP_PROGRAM) bubblefishymon
+	$(MAKE) PREFIX=/usr STRIP=$(STRIP_PROGRAM) gkrellm
 	touch build-stamp
 
 clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
-	-$(MAKE) clean
+	$(MAKE) clean
 	dh_clean
 
 install: DH_OPTIONS=

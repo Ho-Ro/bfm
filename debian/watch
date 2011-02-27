@@ -1,2 +1,7 @@
-version=2
-http://www.jnrowe.ukfsn.org/projects/bfm.html /files/bfm-(.*)\.tar\.bz2
+version=3
+http://www.jnrowe.ukfsn.org/projects/bfm.html../_downloads/bfm-(.*)\.tar\.bz2
+
+
+
+
+

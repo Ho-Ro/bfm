@@ -1,3 +1,16 @@
+bfm (0.6.4-4) unstable; urgency=low
+
+  * Fixed nostrip build option. (Closes: #436580)
+  * Fixed watch. (Closes: #450079)
+  * Fixed menu.
+  * Fixed FTBFS bug with binutils-gold. (Closes: #553959)
+  * Fixed black background in WindowMaker. (Closes: 555923)
+  * Updated to Standards-Version: 3.9.1
+  * Removed the deprecated pseudo header for Homepage and turned it into a 
+    regular debian/control field (Closes:#615303, #615318).
+
+ -- Mika Matsuzaki <mika@yukidoke.org>  Sat, 26 Feb 2011 20:44:58 -0500
+
 bfm (0.6.4-3) unstable; urgency=low
 
   * New maintainer.
