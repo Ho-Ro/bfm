@@ -53,7 +53,7 @@ BUBBLEFISHYMON = bubblefishymon
 GKRELLM_SRCS = gkrellm-bfm.c
 GKRELLM_OBJS = gkrellm-bfm.o
 GKRELLM_BFM = gkrellm-bfm.so
-LDFLAGS = -shared -Wl
+LDFLAGS = -shared
 
 STRIP = strip
 

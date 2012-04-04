@@ -1,3 +1,11 @@
+bfm (0.6.4-5) unstable; urgency=low
+
+  * Removed extraneous -Wl flag that cause FTBFS with GCC 4.7
+    (Closes: #667112).
+  * Updated Standards-Version: 3.9.3
+
+ -- Mika Matsuzaki <mika@yukidoke.org>  Tue, 03 Apr 2012 23:56:02 -0400
+
 bfm (0.6.4-4) unstable; urgency=low
 
   * Fixed nostrip build option. (Closes: #436580)
