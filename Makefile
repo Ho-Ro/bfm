@@ -32,6 +32,7 @@ GTK_LIBS = -lX11 $(shell gtk-config --libs)
 GTK2_CFLAGS = $(shell pkg-config gtk+-2.0 --cflags)
 GTK2_LIBS = -lX11 $(shell pkg-config gtk+-2.0 --libs)
 
+LIBS += -lm
 
 # optimization cflags
 #CFLAGS = -O3 -Wall ${EXTRA}
@@ -79,14 +80,14 @@ endif
 ifeq ($(OS), FreeBSD)
 	SRCS += sys_freebsd.c
     OBJS += sys_freebsd.o
-    LIBS = -lkvm
+    LIBS += -lkvm
     INSTALL = -c -g kmem -m 2755 -o root
 endif
 
 # special things for OpenBSD
 ifeq ($(OS), OpenBSD)
     OBJS += sys_openbsd.o
-    LIBS = `gtk-config --libs | sed "s/-lgtk//g"`
+    LIBS += `gtk-config --libs | sed "s/-lgtk//g"`
 endif
 
 #special things for SunOS
@@ -109,7 +110,7 @@ ifeq ($(OS), SunOS)
     CFLAGS += ${EXTRA}
 	SRCS += sys_sunos.c
     OBJS += sys_sunos.o
-    LIBS = -lkstat -lm
+    LIBS += -lkstat
     INSTALL = -m 755
 endif
 
@@ -129,12 +130,12 @@ gkrellm1: clean_obj
 
 bubblefishymon: clean_obj
 	$(CC) $(GTK2_CFLAGS) $(CFLAGS) -o $(BUBBLEFISHYMON) \
-		$(LIBS) $(GTK2_LIBS) $(SRCS)
+		$(SRCS) $(LIBS) $(GTK2_LIBS)
 	$(STRIP) $(BUBBLEFISHYMON)
 
 bubblefishymon1: clean_obj
 	$(CC) $(GTK_CFLAGS) $(CFLAGS) -o $(BUBBLEFISHYMON) \
-		$(LIBS) $(GTK_LIBS) $(SRCS)
+		$(SRCS) $(LIBS) $(GTK_LIBS)
 	$(STRIP) $(BUBBLEFISHYMON)
 
 clean_obj:

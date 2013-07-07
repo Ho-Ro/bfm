@@ -1,3 +1,12 @@
+bfm (0.6.4-5.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Specifically link libm. (Closes: #713602).
+  * Fix ordering of libraries. (Closes: #616727).
+    + Thanks to Dave Walker for the fix.
+
+ -- Barry deFreese <bdefreese@debian.org>  Sun, 07 Jul 2013 04:02:09 -0400
+
 bfm (0.6.4-5) unstable; urgency=low
 
   * Removed extraneous -Wl flag that cause FTBFS with GCC 4.7
