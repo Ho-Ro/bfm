@@ -1,3 +1,11 @@
+bfm (0.6.4-6) unstable; urgency=low
+
+  * Switched the source format from 1.0 to 3.0 (quilt)
+  * Updated the homepage. (Closes: #738809).
+  * Updated Standards-Version: 3.9.5
+
+ -- Mika Matsuzaki <mika@yukidoke.org>  Sun, 18 May 2014 18:33:55 -0700
+
 bfm (0.6.4-5.1) unstable; urgency=low
 
   * Non-maintainer upload.

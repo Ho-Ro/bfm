@@ -1,0 +1,135 @@
+Description: switch the source format to 3.0 (quilt)
+ Created debian/source/format. Set to 3.0 (quilt).
+ .
+ bfm (0.6.4-5.1) unstable; urgency=low
+ .
+   * Non-maintainer upload.
+   * Specifically link libm. (Closes: #713602).
+   * Fix ordering of libraries. (Closes: #616727).
+     + Thanks to Dave Walker for the fix.
+Author: Barry deFreese <bdefreese@debian.org>
+Bug-Debian: http://bugs.debian.org/616727
+Bug-Debian: http://bugs.debian.org/713602
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- bfm-0.6.4.orig/Makefile
++++ bfm-0.6.4/Makefile
+@@ -14,7 +14,7 @@ EXTRA += -DENABLE_MEMSCREEN
+ EXTRA += -DENABLE_FISH
+ EXTRA += -DENABLE_TIME
+ EXTRA += -DUPSIDE_DOWN_DUCK
+-# EXTRA += -DKDE_DOCKAPP
++EXTRA += -DKDE_DOCKAPP
+ 
+ # If building for Linux define the network device to monitor.
+ NET_DEVICE = eth0
+@@ -27,11 +27,12 @@ EXTRA += $(WMAN)
+ 
+ # gtk cflags and gtk lib flags
+ GTK_CFLAGS = $(shell gtk-config --cflags)
+-GTK_LIBS = $(shell gtk-config --libs)
++GTK_LIBS = -lX11 $(shell gtk-config --libs)
+ 
+ GTK2_CFLAGS = $(shell pkg-config gtk+-2.0 --cflags)
+-GTK2_LIBS = $(shell pkg-config gtk+-2.0 --libs)
++GTK2_LIBS = -lX11 $(shell pkg-config gtk+-2.0 --libs)
+ 
++LIBS += -lm
+ 
+ # optimization cflags
+ #CFLAGS = -O3 -Wall ${EXTRA}
+@@ -53,7 +54,7 @@ BUBBLEFISHYMON = bubblefishymon
+ GKRELLM_SRCS = gkrellm-bfm.c
+ GKRELLM_OBJS = gkrellm-bfm.o
+ GKRELLM_BFM = gkrellm-bfm.so
+-LDFLAGS = -shared -Wl
++LDFLAGS = -shared
+ 
+ STRIP = strip
+ 
+@@ -62,7 +63,6 @@ CC = gcc
+ INSTALLMAN = -m 644
+ 
+ 
+-
+ # special things for Linux
+ ifeq ($(OS), Linux)
+ ifeq "$(NET_DEVICE)" ""
+@@ -80,14 +80,14 @@ endif
+ ifeq ($(OS), FreeBSD)
+ 	SRCS += sys_freebsd.c
+     OBJS += sys_freebsd.o
+-    LIBS = -lkvm
++    LIBS += -lkvm
+     INSTALL = -c -g kmem -m 2755 -o root
+ endif
+ 
+ # special things for OpenBSD
+ ifeq ($(OS), OpenBSD)
+     OBJS += sys_openbsd.o
+-    LIBS = `gtk-config --libs | sed "s/-lgtk//g"`
++    LIBS += `gtk-config --libs | sed "s/-lgtk//g"`
+ endif
+ 
+ #special things for SunOS
+@@ -110,7 +110,7 @@ ifeq ($(OS), SunOS)
+     CFLAGS += ${EXTRA}
+ 	SRCS += sys_sunos.c
+     OBJS += sys_sunos.o
+-    LIBS = -lkstat -lm
++    LIBS += -lkstat
+     INSTALL = -m 755
+ endif
+ 
+@@ -130,12 +130,12 @@ gkrellm1: clean_obj
+ 
+ bubblefishymon: clean_obj
+ 	$(CC) $(GTK2_CFLAGS) $(CFLAGS) -o $(BUBBLEFISHYMON) \
+-		$(LIBS) $(GTK2_LIBS) $(SRCS)
++		$(SRCS) $(LIBS) $(GTK2_LIBS)
+ 	$(STRIP) $(BUBBLEFISHYMON)
+ 
+ bubblefishymon1: clean_obj
+ 	$(CC) $(GTK_CFLAGS) $(CFLAGS) -o $(BUBBLEFISHYMON) \
+-		$(LIBS) $(GTK_LIBS) $(SRCS)
++		$(SRCS) $(LIBS) $(GTK_LIBS)
+ 	$(STRIP) $(BUBBLEFISHYMON)
+ 
+ clean_obj:
+--- bfm-0.6.4.orig/doc/bubblefishymon.1
++++ bfm-0.6.4/doc/bubblefishymon.1
+@@ -44,6 +44,9 @@ are the programs to spawn when either th
+ .B \-d
+ disable swimming duck.
+ .TP
++.B \-u
++disable upside-down duck.
++.TP
+ .B \-f
+ disable fish.
+ .TP
+@@ -59,6 +62,12 @@ use alternate colour scheme in memory in
+ .B \-k
+ display memory and swap statistics in megabytes.
+ .TP
++.B \-n[iface]
++fish represents network traffic [on <iface>].
++.TP
++.B \-t
++draw the clock too.
++.TP
+ .B \-h
+ display help.
+ .SH SEE ALSO
