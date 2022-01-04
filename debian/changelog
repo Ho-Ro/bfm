@@ -1,3 +1,10 @@
+bfm (0.6.4-6.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/compat: 5 -> 7. (Closes: #965437)
+
+ -- Adrian Bunk <bunk@debian.org>  Tue, 04 Jan 2022 17:30:21 +0200
+
 bfm (0.6.4-6) unstable; urgency=low
 
   * Switched the source format from 1.0 to 3.0 (quilt)
