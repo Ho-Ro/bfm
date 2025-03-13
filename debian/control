@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Mika Matsuzaki <mika@yukidoke.org>
 Uploaders: Ola Lundqvist <opal@debian.org>
 Build-Depends: debhelper (>= 5), gkrellm, libgtk2.0-dev
-Standards-Version: 3.9.5
+Standards-Version: 4.7.2
 Vcs-Browser: https://salsa.debian.org/debian/bfm
 Vcs-Git: https://salsa.debian.org/debian/bfm.git
 Homepage: https://github.com/JNRowe/bfm
