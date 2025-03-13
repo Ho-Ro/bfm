@@ -24,4 +24,3 @@ Description: system load plugin for gkrellm with a duck
  A load monitor plugin for gkrellm, descended from wmfishtime and bubblemon.
  Features include fish representing network traffic, bubbles representing
  CPU usage, and a duck representing a duck.
-
