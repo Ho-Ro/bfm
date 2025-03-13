@@ -13,6 +13,7 @@ bfm (0.6.4-7) UNRELEASED; urgency=medium
   * Remove trailing whitespace in debian/rules (routine-update)
   * Trim trailing whitespace.
   * Build with -Wno-incompatible-pointer-types (Closes: #1096363)
+  * Remove unneeded d/dirs
 
   [ Helmut Grohne ]
   * Fix FTCBFS: (Closes: #923274)
