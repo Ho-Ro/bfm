@@ -1,3 +1,10 @@
+bfm (0.6.4-7) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * Maintain package in Debian team on Salsa
+
+ -- Andreas Tille <tille@debian.org>  Thu, 13 Mar 2025 04:57:56 +0100
+
 bfm (0.6.4-6.1) unstable; urgency=low
 
   * Non-maintainer upload.
