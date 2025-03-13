@@ -1,31 +1,30 @@
-This package was debianized by Jamie Wilkinson <jaq@debian.org> on
-Mon, 19 Aug 2002 10:50:39 +1000.
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: bfm
+Source: https://github.com/JNRowe/bfm
 
-It was downloaded from http://www.jnrowe.ukfsn.org/projects/bfm.html
+Files: *
+Copyright: 1999 Merlin Hughes
+           1999-2000 Johan Walles <d92-jwa@nada.kth.se>
+           2001 Pigeon
+           2009 James Rowe <Jay@jnrowe.ukfsn.org>
+License: GPL-2+
 
-Copyright:
+Files: debian/*
+Copyright: 2002-2004 Jamie Wilkinson <jaq@debian.org>
+           2007-2014 Mika Matsuzaki <mika@yukidoke.org>
+License: GPL-2+
 
-    Copyright (C) 1999 Merlin Hughes
-    Copyright (C) 1999-2000 Johan Walles <d92-jwa@nada.kth.se>
-    Copyright (C) 2001 Pigeon
-    Copyright (c) 2009 James Rowe <Jay@jnrowe.ukfsn.org>
-
-License:
-
+License: GPL-2+
    This package is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2 of the License, or
    (at your option) any later version.
-
+ .
    This package is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this package; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-
-On Debian systems, the complete text of the GNU General
-Public License can be found in `/usr/share/common-licenses/GPL'.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License can be found in `/usr/share/common-licenses/GPL-2'.
 

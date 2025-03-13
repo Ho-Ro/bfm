@@ -14,6 +14,7 @@ bfm (0.6.4-7) UNRELEASED; urgency=medium
   * Trim trailing whitespace.
   * Build with -Wno-incompatible-pointer-types (Closes: #1096363)
   * Remove unneeded d/dirs
+  * d/copyright: DEP5
 
   [ Helmut Grohne ]
   * Fix FTCBFS: (Closes: #923274)
