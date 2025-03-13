@@ -8,6 +8,7 @@ bfm (0.6.4-7) UNRELEASED; urgency=medium
   * d/rules: Short dh
   * Standards-Version: 4.7.2 (routine-update)
   * debhelper-compat 13 (routine-update)
+  * Remove trailing whitespace in debian/changelog (routine-update)
 
   [ Helmut Grohne ]
   * Fix FTCBFS: (Closes: #923274)
@@ -57,7 +58,7 @@ bfm (0.6.4-4) unstable; urgency=low
   * Fixed FTBFS bug with binutils-gold. (Closes: #553959)
   * Fixed black background in WindowMaker. (Closes: 555923)
   * Updated to Standards-Version: 3.9.1
-  * Removed the deprecated pseudo header for Homepage and turned it into a 
+  * Removed the deprecated pseudo header for Homepage and turned it into a
     regular debian/control field (Closes:#615303, #615318).
 
  -- Mika Matsuzaki <mika@yukidoke.org>  Sat, 26 Feb 2011 20:44:58 -0500
@@ -129,7 +130,7 @@ bfm (0.5.1-7) unstable; urgency=low
 bfm (0.5.1-6) unstable; urgency=low
 
   * The "stirring words from the DPL" release.
-  * Added -fPIC to gkrellm2 target.  Fixes FTBFS on hppa and others. 
+  * Added -fPIC to gkrellm2 target.  Fixes FTBFS on hppa and others.
 
  -- Jamie Wilkinson <jaq@debian.org>  Thu, 23 Jan 2003 17:33:56 +0800
 
