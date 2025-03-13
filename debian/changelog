@@ -1,4 +1,4 @@
-bfm (0.6.4-7) UNRELEASED; urgency=medium
+bfm (0.6.4-7) unstable; urgency=medium
 
   * Team upload.
 
@@ -22,7 +22,7 @@ bfm (0.6.4-7) UNRELEASED; urgency=medium
     + Let dh_auto_build pass cross tools to make.
     + Defer all stripping to dh_strip.
 
- -- Andreas Tille <tille@debian.org>  Thu, 13 Mar 2025 04:57:56 +0100
+ -- Andreas Tille <tille@debian.org>  Thu, 13 Mar 2025 05:40:31 +0100
 
 bfm (0.6.4-6.1) unstable; urgency=low
 
