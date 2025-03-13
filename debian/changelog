@@ -9,6 +9,7 @@ bfm (0.6.4-7) UNRELEASED; urgency=medium
   * Standards-Version: 4.7.2 (routine-update)
   * debhelper-compat 13 (routine-update)
   * Remove trailing whitespace in debian/changelog (routine-update)
+  * Remove trailing whitespace in debian/copyright (routine-update)
 
   [ Helmut Grohne ]
   * Fix FTCBFS: (Closes: #923274)
