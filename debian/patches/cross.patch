@@ -1,3 +1,8 @@
+Author:  Helmut Grohne <helmut@subdivi.de>
+Last-Update: 2019-02-25
+Bug-Debian: https://bugs.debian.org/923274
+Description: Make pkg-config substitutable
+
 --- bfm-0.6.4.orig/Makefile
 +++ bfm-0.6.4/Makefile
 @@ -29,8 +29,9 @@
