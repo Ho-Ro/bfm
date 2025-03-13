@@ -1,8 +1,16 @@
 bfm (0.6.4-7) UNRELEASED; urgency=medium
 
   * Team upload.
+
+  [ Andreas Tille ]
   * Maintain package in Debian team on Salsa
   * Fix watch file
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: (Closes #923274)
+    + cross.patch: Make pkg-config substitutable.
+    + Let dh_auto_build pass cross tools to make.
+    + Defer all stripping to dh_strip.
 
  -- Andreas Tille <tille@debian.org>  Thu, 13 Mar 2025 04:57:56 +0100
 

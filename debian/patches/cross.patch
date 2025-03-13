@@ -1,0 +1,14 @@
+--- bfm-0.6.4.orig/Makefile
++++ bfm-0.6.4/Makefile
+@@ -29,8 +29,9 @@
+ GTK_CFLAGS = $(shell gtk-config --cflags)
+ GTK_LIBS = -lX11 $(shell gtk-config --libs)
+ 
+-GTK2_CFLAGS = $(shell pkg-config gtk+-2.0 --cflags)
+-GTK2_LIBS = -lX11 $(shell pkg-config gtk+-2.0 --libs)
++PKG_CONFIG ?= pkg-config
++GTK2_CFLAGS = $(shell $(PKG_CONFIG) gtk+-2.0 --cflags)
++GTK2_LIBS = -lX11 $(shell $(PKG_CONFIG) gtk+-2.0 --libs)
+ 
+ LIBS += -lm
+ 
