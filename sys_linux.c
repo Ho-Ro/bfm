@@ -165,6 +165,55 @@ extern int fish_traffic;
 extern char *network_interface;
 void get_traffic(void);
 
+/* Auto-detect the default network interface from /proc/net/route.
+ * Finds the interface whose Destination is 00000000 (default route)
+ * and Mask is 00000000 with the lowest Metric. Overrides the
+ * compile-time "eth0" default. */
+static int detect_default_interface(void)
+{
+    FILE *route;
+    char buffer[256];
+    char iface[16];
+    char dest[16];
+    char mask[16];
+    unsigned int metric;
+    unsigned int best_metric = 0;
+    static char detected[16];
+    int found = 0;
+
+    route = fopen("/proc/net/route", "r");
+    if (!route)
+        return 0;
+
+    /* skip header line */
+    if (!fgets(buffer, sizeof(buffer), route)) {
+        fclose(route);
+        return 0;
+    }
+
+    while (fgets(buffer, sizeof(buffer), route)) {
+        /* Iface Destination Gateway Flags RefCnt Use Metric Mask MTU Window IRTT */
+        if (sscanf(buffer, "%15s %15s %*s %*s %*s %*s %u %15s",
+                   iface, dest, &metric, mask) == 4) {
+            if (strcmp(dest, "00000000") == 0 && strcmp(mask, "00000000") == 0) {
+                if (!found || metric < best_metric) {
+                    best_metric = metric;
+                    strncpy(detected, iface, sizeof(detected) - 1);
+                    detected[sizeof(detected) - 1] = '\0';
+                    found = 1;
+                }
+            }
+        }
+    }
+
+    fclose(route);
+    if (found) {
+        network_interface = detected;
+        return 1;
+    }
+    return 0;
+}
+
 int net_tx_speed(void)
 {
 	get_traffic();
@@ -194,6 +243,10 @@ void get_traffic(void)
 	{
 		delay = 0;
 	}
+
+	/* Auto-detect default interface when still using the hardcoded "eth0" */
+	if (network_interface && strcmp(network_interface, "eth0") == 0)
+		detect_default_interface();
 
 	if((dev = fopen("/proc/net/dev", "r")) == NULL)
 	{
