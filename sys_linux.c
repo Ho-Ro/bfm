@@ -211,7 +211,7 @@ void get_traffic(void)
 			char name[256];
 			
 			/* I love sscanf! :) */
-			sscanf(buffer, "%*[ ]%[^:]:%*d %Ld %*d %*d %*d %*d %*d %*d %*d %Ld %*d %*d %*d %*d %*d %*d", name, &rx_amount, &tx_amount);
+			sscanf(buffer, " %[^:]:%*d %Ld %*d %*d %*d %*d %*d %*d %*d %Ld %*d %*d %*d %*d %*d %*d", name, &rx_amount, &tx_amount);
 
 			if(!strcmp(name, network_interface))
 			{
