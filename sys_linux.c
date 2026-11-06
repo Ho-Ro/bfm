@@ -163,6 +163,7 @@ int delay;
 
 extern int fish_traffic;
 extern char *network_interface;
+extern int auto_detect_net;
 void get_traffic(void);
 
 /* Skip virtual/tunnel interfaces during auto-detection so a real
@@ -262,9 +263,18 @@ void get_traffic(void)
 		delay = 0;
 	}
 
-	/* Auto-detect default interface when still using the hardcoded "eth0" */
-	if (network_interface && strcmp(network_interface, "eth0") == 0)
-		detect_default_interface();
+	/* Auto-detect / re-detect default interface when not explicitly set */
+	if (auto_detect_net)
+	{
+		static int detect_cnt = 0;
+		#define DETECT_INTERVAL 100   /* re-check every 100 update cycles (~10s) */
+
+		if (detect_cnt++ >= DETECT_INTERVAL)
+		{
+			detect_default_interface();
+			detect_cnt = 0;
+		}
+	}
 
 	if((dev = fopen("/proc/net/dev", "r")) == NULL)
 	{
@@ -385,8 +395,4 @@ void get_traffic(void)
 
 
 
-
-
 #endif
-
-

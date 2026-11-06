@@ -17,7 +17,7 @@ EXTRA += -DUPSIDE_DOWN_DUCK
 # EXTRA += -DKDE_DOCKAPP
 
 # If building for Linux define the network device to monitor.
-NET_DEVICE = eth0
+# NET_DEVICE = eth0   # removed → auto-detect at runtime when not specified
 
 
 ###############################################################################
@@ -66,7 +66,7 @@ INSTALLMAN = -m 644
 # special things for Linux
 ifeq ($(OS), Linux)
 ifeq "$(NET_DEVICE)" ""
-	CFLAGS+=-DNET_DEVICE=\"eth0\"
+	# leave undefined → auto-detect at runtime
 else
 	CFLAGS+=-DNET_DEVICE=\"$(NET_DEVICE)\"
 endif

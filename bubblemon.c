@@ -167,8 +167,10 @@ int fish_enabled = 1;
 int fish_traffic = 0;
 #ifdef NET_DEVICE
 char *network_interface = NET_DEVICE;
+int auto_detect_net = 0;
 #else
 char *network_interface = "eth0";
+int auto_detect_net = 1;
 #endif
 #endif
 
